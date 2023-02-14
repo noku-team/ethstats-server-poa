@@ -13,8 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: build Images
-    env:
-      NETWORK: ${{inputs.network}}
     steps:
       # same as git fetch --depth 1
       - name: Checkout
@@ -31,7 +29,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           build-args: |
-            NETWORK=${{environment.NETWORK}}
+            NETWORK=${{inputs.network}}
       - name: Get Previous tag
         id: previoustag
         uses: WyriHaximus/github-action-get-previous-tag@v1
