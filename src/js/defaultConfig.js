@@ -1,2 +1,2 @@
-var networkName = process.env.NETWORK;
+var networkName = 'Ethereum';
 var faviconPath = '/favicon.ico';

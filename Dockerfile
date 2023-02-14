@@ -1,10 +1,13 @@
 FROM node:lts-alpine AS builder
 ARG GRUNT_TASK=default
+ARG NETWORK=noku
+ENV NETWORK $NETWORK
 WORKDIR /ethstats-server
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm ci --only=production && npm install -g grunt-cli
 COPY --chown=node:node . .
-RUN grunt $GRUNT_TASK
+RUN grunt poa --configPath="src/js/$NETWORK.js"
+# RUN grunt $GRUNT_TASK
 
 FROM node:lts-alpine
 RUN apk add dumb-init

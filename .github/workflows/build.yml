@@ -30,6 +30,8 @@ jobs:
           registry: ${{ inputs.registry_endpoint }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          build-args: |
+            NETWORK=${{environment.NETWORK}}
       - name: Get Previous tag
         id: previoustag
         uses: WyriHaximus/github-action-get-previous-tag@v1

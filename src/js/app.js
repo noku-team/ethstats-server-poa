@@ -9,7 +9,6 @@ netStatsApp.run(function($rootScope) {
 	$rootScope.faviconPath = faviconPath || '/favicon.ico';
 });
 
-
 /* Services */
 
 netStatsApp.factory('socket', function ($rootScope) {
