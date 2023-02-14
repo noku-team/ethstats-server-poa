@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   ethstats:
-    image: noku/ethstats-3achain:latest
+    image: ghcr.io/noku-team/ethstats-server-poa:latest
     restart: always
     ports:
       - "80:3000/tcp"

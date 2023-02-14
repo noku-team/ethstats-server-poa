@@ -4,7 +4,7 @@ on:
     inputs:
       network:
         type: choice
-        description: Choose a version to tag
+        description: Choose a Network
         options:
           - noku
           - 3achain
