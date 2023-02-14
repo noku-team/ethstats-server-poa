@@ -1,0 +1,17 @@
+name: Build Client
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        type: choice
+        description: Choose a version to tag
+        options:
+          - noku
+          - 3achain
+          - luxochain
+jobs:
+  build-testnet:
+    uses: noku-team/ethstats-server-poa/.github/workflows/build.yml@master
+    with:
+      network: ${{inputs.network}}
+      registry_endpoint: "ghcr.io"

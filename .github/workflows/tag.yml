@@ -1,0 +1,37 @@
+name: Tag
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: choice
+        description: Choose a version to tag
+        options:
+          - patch
+          - minor
+          - major
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Tag Version
+    steps:
+      - name: Print Semantic Versioning
+        run: echo ${{ inputs.version }}
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Check for changes
+        run: |
+          CHANGES=$(git diff --name-only HEAD $(git describe --tags --abbrev=0) | wc -l)
+          if [ "$CHANGES" -eq 0 ]; then
+            echo "No changes in Git, exiting"
+            exit 1
+          else
+            echo "Changes detected in Git"
+          fi
+      - name: Bump version and push tag
+        uses: zwaldowski/semver-release-action@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          bump: ${{ inputs.version }}
+          prefix: v
