@@ -1,2 +1,2 @@
-var networkName = 'Noku';
+var networkName = 'Nokuchain';
 var faviconPath = '/favicon.ico';

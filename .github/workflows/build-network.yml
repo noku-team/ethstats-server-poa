@@ -6,7 +6,7 @@ on:
         type: choice
         description: Choose a Network
         options:
-          - noku
+          - nokuchain
           - 3achain
           - luxochain
 jobs:
