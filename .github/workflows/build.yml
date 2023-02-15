@@ -28,8 +28,6 @@ jobs:
           registry: ${{ inputs.registry_endpoint }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          build-args: |
-            NETWORK=${{inputs.network}}
       - name: Get Previous tag
         id: previoustag
         uses: WyriHaximus/github-action-get-previous-tag@v1
@@ -47,3 +45,5 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ inputs.registry_endpoint }}/noku-team/ethstats-server-poa/${{inputs.network}}:${{ steps.previoustag.outputs.tag }}, ${{ inputs.registry_endpoint }}/noku-team/ethstats-server-poa/${{inputs.network}}:latest
+          build-args: |
+            NETWORK=${{inputs.network}}
