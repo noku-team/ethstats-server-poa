@@ -46,4 +46,4 @@ jobs:
           no-cache: true
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ inputs.registry_endpoint }}/noku-team/ethstats-server-poa/${{inputs.network}}:${{ steps.previoustag.outputs.tag }}, ${{ inputs.registry_endpoint }}/noku-team/ethstats-server-poa:latest
+          tags: ${{ inputs.registry_endpoint }}/noku-team/ethstats-server-poa/${{inputs.network}}:${{ steps.previoustag.outputs.tag }}, ${{ inputs.registry_endpoint }}/noku-team/ethstats-server-poa/${{inputs.network}}:latest
