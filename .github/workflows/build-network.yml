@@ -10,7 +10,7 @@ on:
           - 3achain
           - luxochain
 jobs:
-  build-testnet:
+  build-network:
     uses: noku-team/ethstats-server-poa/.github/workflows/build.yml@master
     with:
       network: ${{inputs.network}}
