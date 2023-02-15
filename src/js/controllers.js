@@ -164,6 +164,7 @@ netStatsApp.controller('StatsCtrl', function($scope, $filter, $localStorage, soc
 					node.pinned = ($scope.pinned.indexOf(node.id) >= 0 ? true : false);
 				});
 
+				console.warn("test", $scope);
 				if( $scope.nodes.length > 0 )
 				{
 					toastr['success']("Got nodes list", "Got nodes!");
