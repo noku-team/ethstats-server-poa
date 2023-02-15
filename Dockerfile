@@ -6,7 +6,7 @@ WORKDIR /ethstats-server
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm ci --only=production && npm install -g grunt-cli
 COPY --chown=node:node . .
-RUN grunt poa --configPath="src/js/$NETWORK.js"
+RUN grunt poa --configPath="src/js/config/network/$NETWORK.js"
 # RUN grunt $GRUNT_TASK
 
 FROM node:lts-alpine
