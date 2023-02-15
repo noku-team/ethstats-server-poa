@@ -1,4 +1,4 @@
-name: Build Client
+name: Build Network
 on:
   workflow_dispatch:
     inputs:
